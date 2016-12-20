@@ -1,0 +1,4 @@
+*** WooCommerce Klarna External Payment Method Changelog ***
+ 
+ 2016.12.08		- version 1.0
+ * Initial release
