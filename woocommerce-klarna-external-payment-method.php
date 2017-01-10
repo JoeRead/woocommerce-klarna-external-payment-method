@@ -8,7 +8,10 @@ Author: Krokedil
 Author URI: http://krokedil.com
 */
 
-// Add settings
+/**
+ * Extens KCO settings with External Payment Method - PayPal settings.
+ *
+ */
 add_filter( 'klarna_checkout_form_fields', 'wkemp_klarna_checkout_form_fields' );
 
 function wkemp_klarna_checkout_form_fields( $settings ) {
@@ -44,7 +47,10 @@ function wkemp_klarna_checkout_form_fields( $settings ) {
 	return $settings;
 }
 
-// New order ($create)
+/**
+ * Add PayPal as Payment Method to the KCO iframe.
+ *
+ */
 add_filter('kco_create_order', 'krokedil_kco_create_order_paypal');
 function krokedil_kco_create_order_paypal( $create ) {
 	$klarna_checkout_settings = get_option( 'woocommerce_klarna_checkout_settings' );
@@ -66,7 +72,10 @@ function krokedil_kco_create_order_paypal( $create ) {
 	return $create;
 }
 
-// Redirect to PayPal
+/**
+ * Redirect to PayPal when the Proceed to PayPal button in KCO iframe is clicked.
+ *
+ */
 add_action('init', 'kco_redirect_to_paypal' );
 function kco_redirect_to_paypal() {
 	if( isset ( $_GET['kco-external-payment'] ) && 'paypal' == $_GET['kco-external-payment'] ) {
@@ -87,7 +96,7 @@ function kco_redirect_to_paypal() {
 }
 
 /**
- * Add customer data to order if customer exist or if KCO settings say that we should create customer on order completion.
+ * Add customer data to order (in thank you page) if customer exist or if KCO settings say that we should create customer on order completion.
  *
  * Also clear KCO sessions if this was a PayPal purchase that was initiated from the KCO iframe.
  *
