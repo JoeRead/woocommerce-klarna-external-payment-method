@@ -1,4 +1,7 @@
 *** WooCommerce Klarna External Payment Method Changelog ***
  
- 2016.12.08		- version 1.0
+ 2017.01.10			- version 1.1
+ * Tweak			- Add customer data to order if customer exist or create customer if KCO settings say that we should that. 
+ 
+  2016.12.08		- version 1.0
  * Initial release

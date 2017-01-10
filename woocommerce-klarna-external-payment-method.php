@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Klarna External Payment Method
 Plugin URI: http://krokedil.com
 Description: Adds PayPal as an extra payment method in the KCO checkout iframe.
-Version: 1.0
+Version: 1.1
 Author: Krokedil
 Author URI: http://krokedil.com
 */
