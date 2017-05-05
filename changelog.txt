@@ -1,5 +1,8 @@
 *** WooCommerce Klarna External Payment Method Changelog ***
 
+2017.05.05 - version 1.2
+* Tweak - Changes redirect_url to redirect_uri for KCO V3 (GitHub issue #1).
+
 2017.01.10 - version 1.1
 * Tweak - Add customer data to order if customer exist or create customer if KCO settings say that we should that.
  
