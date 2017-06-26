@@ -37,12 +37,6 @@ function wkemp_klarna_checkout_form_fields( $settings ) {
 		'description' => __( 'The url to the PayPal payment Icon.', 'woocommerce-gateway-klarna' ),
 		'default'     => 'https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png'
 	);
-	$settings['epm_paypal_fee'] = array(
-		'title'       => __( 'Fee', 'woocommerce-gateway-klarna' ),
-		'type'        => 'text',
-		'description' => __( 'Fee added to the order.', 'woocommerce-gateway-klarna' ),
-		'default'     => ''
-	);
 	
 	return $settings;
 }
@@ -56,13 +50,11 @@ function krokedil_kco_create_order_paypal( $create ) {
 	$klarna_checkout_settings = get_option( 'woocommerce_klarna_checkout_settings' );
 	$name   		= ( isset( $klarna_checkout_settings['epm_paypal_name'] ) ) ? $klarna_checkout_settings['epm_paypal_name'] : '';
 	$image_url   	= ( isset( $klarna_checkout_settings['epm_paypal_img_url'] ) ) ? $klarna_checkout_settings['epm_paypal_img_url'] : '';
-	$fee   			= ( isset( $klarna_checkout_settings['epm_paypal_fee'] ) ) ? $klarna_checkout_settings['epm_paypal_fee'] : '';
 	$description   	= ( isset( $klarna_checkout_settings['epm_paypal_description'] ) ) ? $klarna_checkout_settings['epm_paypal_description'] : '';
 	$klarna_external_payment = array(
 		'name' 			=> $name,
 		'redirect_url' 	=> esc_url( add_query_arg( 'kco-external-payment', 'paypal', get_site_url() ) ),
 		'image_url' 	=> $image_url,
-		'fee' 			=> $fee,
 		'description' 	=> $description,
 	);
 	$klarna_external_payment = array( $klarna_external_payment );
